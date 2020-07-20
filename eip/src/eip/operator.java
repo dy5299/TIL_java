@@ -13,7 +13,8 @@ public class operator {
 		
 		
 		
-		System.out.println("\n" + ">> 증감 연산자");
+		System.out.println();
+		System.out.println(">> 증감 연산자");
 		int i = 0;
 		System.out.println("i첫번째 = " + i);
 		
@@ -38,7 +39,8 @@ public class operator {
 		
 		
 		
-		System.out.println("\n" + ">> 증감 연산자 2 - 전위형");
+		System.out.println();
+		System.out.println(">> 증감 연산자 2 - 전위형");
 		i = 10;
 		j = 0;
 		
@@ -47,8 +49,9 @@ public class operator {
 		System.out.println("j = " + j);
 		
 		
-
-		System.out.println("\n" + ">> 증감 연산자 2 - 후위형");
+		
+		System.out.println();
+		System.out.println(">> 증감 연산자 2 - 후위형");
 		i = 10;
 		j = 0;
 		
@@ -57,8 +60,9 @@ public class operator {
 		System.out.println("j = " + j);
 		
 		
-
-		System.out.println("\n" + ">> 산술 연산자");
+		
+		System.out.println();
+		System.out.println(">> 산술 연산자");
 		int x = 7;
 		int y = 2;
 		
@@ -69,7 +73,9 @@ public class operator {
 		System.out.printf("%d / %d 으로 나눌 경우, 몫은 %d 이며 나머지는 %d 입니다.", x, y, x/y, x%y);
 		
 		
-		System.out.println("\n" + ">> 비교(관계) 연산자");
+		
+		System.out.println();
+		System.out.println(">> 비교(관계) 연산자");
 		x = 7;
 		y = 2;
 		
@@ -80,5 +86,14 @@ public class operator {
 		System.out.printf("%d == %d \t\t %b \n", x, y, x==y);
 		System.out.printf("%d != %d \t\t %b \n", x, y, x!=y);
 		
+		
+
+		System.out.println();
+		System.out.println(">> 삼항 연산자");
+		int a = (2>1) ? 100 : 0;
+		System.out.println(a);
+		
+		int b = (1>2) ? 100 : 0;
+		System.out.println(b);
 	}
 }
