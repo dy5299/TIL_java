@@ -22,9 +22,17 @@ public class User {
 //    @Column(name="account")       // column name과 동일하면 선언 안 해도 됨
     private String account;
 
+    private String password;
+
+    private String status;
+
     private String email;
 
     private String phoneNumber;     // underbar 안 맞춰도 JPA가 자동 매칭
+
+    private LocalDateTime registeredAt;
+
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
@@ -34,7 +42,7 @@ public class User {
 
     private String updatedBy;
 
-    // 1:N
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")  // 객체이름 user
-    private List<OrderDetail> orderDetailList;
+//    // 1:N
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")  // 객체이름 user
+//    private List<OrderDetail> orderDetailList;
 }
