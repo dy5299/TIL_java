@@ -3,6 +3,7 @@ package com.example.study.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString(exclude = {"orderDetailList","partner"})
 public class Item {
 
     @Id
@@ -42,14 +44,16 @@ public class Item {
 
     private String updatedBy;
 
-    private Long partnerId;     // 외래키도 notnull이면 필수
+
+    // Item 1 : OrderDetail N
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+    private List<OrderDetail> orderDetailList;
 
 
-//    // 1:N
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
-//    private List<OrderDetail> orderDetailList;
+    // Item N : Partner 1
+    @ManyToOne
+    private Partner partner;
+//    private Long partnerId;     // 외래키도 notnull이면 필수
 
-//    Fetch
-//    LAZY: 지연로딩. SELECT * FROM item WHERE id=?
-//    EAGER:즉시로딩. 연관관계가 설정된 모든 테이블에 대해서 JOIN. 1:1 관계 시 사용추천
+
 }

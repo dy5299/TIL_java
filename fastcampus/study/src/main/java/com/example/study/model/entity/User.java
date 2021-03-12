@@ -3,6 +3,7 @@ package com.example.study.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor      // 기본 생성자
 @Entity
-//@Table(name = "user")     // class name과 table name이 동일하다면 굳이 선언 안 해도 자동으로 mapping
+@ToString(exclude = {"orderGroup"})
+
 public class User {
 
     @Id     // 식별자
@@ -42,7 +44,7 @@ public class User {
 
     private String updatedBy;
 
-//    // 1:N
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")  // 객체이름 user
-//    private List<OrderDetail> orderDetailList;
+    // user 1 : OrderGroup N
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
 }
