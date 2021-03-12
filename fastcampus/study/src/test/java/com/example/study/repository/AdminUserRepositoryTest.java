@@ -16,14 +16,19 @@ public class AdminUserRepositoryTest extends StudyApplicationTests {
     @Test
     public void create(){
         AdminUser adminUser = new AdminUser();
-        adminUser.setAccount("AdminUser01");
-        adminUser.setPassword("AdminUser01");
+        adminUser.setAccount("AdminUser02");
+        adminUser.setPassword("AdminUser02");
         adminUser.setStatus("REGISTERED");
         adminUser.setRole("PARTNER");
-        adminUser.setCreatedAt(LocalDateTime.now());
-        adminUser.setCreatedBy("AdminServer");
+        // JpaConfig, Component 이용하여 기본입력 가능
+//        adminUser.setCreatedAt(LocalDateTime.now());
+//        adminUser.setCreatedBy("AdminServer");
 
         AdminUser newAdminUser = adminUserRepository.save(adminUser);
         Assertions.assertNotNull(newAdminUser);
+
+        // JpaConfig, Component 적용2
+        newAdminUser.setAccount("CHANGE");
+        adminUserRepository.save(newAdminUser)
     }
 }
